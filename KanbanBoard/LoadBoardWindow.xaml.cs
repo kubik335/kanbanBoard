@@ -61,7 +61,7 @@ namespace KanbanBoard
                     if (BoardsDO.GetBoardID(kanbanBoardTextInput.Text) == boardID)
                     {
                         // if they are the same return loaded board
-                        board.loadBoard(boardID);
+                        board.LoadBoard(boardID);
                         this.Close();
                     }
                     else
@@ -98,13 +98,13 @@ namespace KanbanBoard
         }
 
         // Method for verifiying board name input - returns true/false value
-        public bool verifyBoardNameInput()
+        private bool verifyBoardNameInput()
         {
             // Validate Input String 
             if (!String.IsNullOrWhiteSpace(kanbanBoardTextInput.Text))
             {
                 // Verify table exists
-                if (CreateBoardTools.tableExists(kanbanBoardTextInput.Text) == false)
+                if (CreateBoardTools.TableExists(kanbanBoardTextInput.Text) == false)
                     {
                         boardNotExistsWarningTextBlock.Visibility = Visibility.Visible;
                         return false;

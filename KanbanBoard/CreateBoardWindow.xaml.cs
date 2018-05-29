@@ -84,7 +84,7 @@ namespace KanbanBoard
         }
 
         // Method for verifiying board name input - returns true/false value
-        public bool verifyBoardNameInput()
+        private bool verifyBoardNameInput()
         {
             // Validate Input String 
             if (!String.IsNullOrWhiteSpace(kanbanBoardTextInput.Text))
@@ -93,11 +93,11 @@ namespace KanbanBoard
                 if (kanbanBoardTextInput.Text.Length <= 15)
                 {
                     // Verify characters allowed
-                    if (CreateBoardTools.isValidInput(kanbanBoardTextInput.Text) == false)
+                    if (CreateBoardTools.IsValidInput(kanbanBoardTextInput.Text) == false)
                     {
                         containsDigitsWarningTextBlock.Visibility = Visibility.Visible;
                     }
-                    else if (CreateBoardTools.tableExists(kanbanBoardTextInput.Text) == true)
+                    else if (CreateBoardTools.TableExists(kanbanBoardTextInput.Text) == true)
                     {
                         boardExistsWarningTextBlock.Visibility = Visibility.Visible;
                         return false;
@@ -115,6 +115,7 @@ namespace KanbanBoard
             }
         }
 
+        // Method for filling default column names
         private void fillDefaultColumns()
         {
             if (String.IsNullOrWhiteSpace(firstColumnNameInput.Text))
@@ -131,7 +132,8 @@ namespace KanbanBoard
             }
         }
 
-        public List<string> getColumnNames()
+        // Method returns list of column names
+        private List<string> getColumnNames()
         {
             List<string> mylist = 
                 new List<string>(new string[] 
@@ -139,11 +141,10 @@ namespace KanbanBoard
                   secondColumnNameInput.Text,
                   thirdColumnNameInput.Text });
             return mylist;
-
         } 
 
         // Method for verifiying columns input - returns true/false value
-        public bool verifyColumnsInput(List<string> list)
+        private bool verifyColumnsInput(List<string> list)
         {
             int i = 0;
             foreach (string item in list)
@@ -155,7 +156,7 @@ namespace KanbanBoard
                     if (item.Length <= 15)
                     {
                         // Verify characters allowed
-                        if (CreateBoardTools.isValidColumnName(item) == false)
+                        if (CreateBoardTools.IsValidColumnName(item) == false)
                         {
                             hideColumnsWarningLabels();
                             charToUseColumnsWarningTextBlock.Visibility = Visibility.Visible;
@@ -164,6 +165,7 @@ namespace KanbanBoard
                     }
                     else
                     {
+                        // Hide warnings 
                         hideColumnsWarningLabels();
                         longColumnNameWarningTextBlock.Visibility = Visibility.Visible;
                         i++;
@@ -182,6 +184,7 @@ namespace KanbanBoard
                 }
             }
 
+            // Evaluate method state
             if ( i > 0)
             {
                 return false;

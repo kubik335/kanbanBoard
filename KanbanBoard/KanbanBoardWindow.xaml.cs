@@ -13,7 +13,7 @@ namespace KanbanBoard
     /// </summary>
     public partial class KanbanBoardWindow
     {
-        public int boardID;
+        private int boardID;
 
         public KanbanBoardWindow(int boardID)
         {
@@ -25,7 +25,8 @@ namespace KanbanBoard
 
         }
 
-        public void loadBoard(int boardID)
+        // Method reloads Kanban Board Window
+        public void LoadBoard(int boardID)
         {
             InitializeComponent();
             this.boardID = boardID;

@@ -21,8 +21,8 @@ namespace KanbanBoard
     /// </summary>
     public partial class TaskWindow : Window
     {
-        public int boardID;
-        public int taskID;
+        private int boardID;
+        private int taskID;
         private KanbanBoardWindow board;
 
         public TaskWindow(int boardID, int? taskID, KanbanBoardWindow board)
@@ -56,31 +56,35 @@ namespace KanbanBoard
 
         }
 
+        // Method for saving task info 
         private void saveTaskInformationButton_Click(object sender, RoutedEventArgs e)
         {
             hideWarningLabels();
             if ( verifyBoardNameInput() == true )
             {
+                // get  chosen column ID 
                 int colPos = comboBox.SelectedIndex + 1;
                 int colID = ColumnsDO.GetColumnID(boardID, colPos);
 
                 if (this.taskID == 0)
                 {
+                    // If task is new - create one 
                     TaskDO.CreateTask(colID, taskNameInput.Text, taskDescriptionInput.Text);
                     this.Close();
-                    this.board.loadBoard(boardID);
+                    this.board.LoadBoard(boardID);
                 }
                 else
                 {
+                    // if task was already created update info 
                     TaskDO.UpdateTask(this.taskID, colID, taskNameInput.Text, taskDescriptionInput.Text);
                     this.Close();
-                    this.board.loadBoard(boardID);
+                    this.board.LoadBoard(boardID);
                 }
             }
         }
 
         // Method for verifiying task information - returns true/false value
-        public bool verifyBoardNameInput()
+        private bool verifyBoardNameInput()
         {
             // Validate Input String 
             if (!String.IsNullOrWhiteSpace(taskNameInput.Text))

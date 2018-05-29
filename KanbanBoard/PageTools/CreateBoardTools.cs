@@ -13,7 +13,7 @@ namespace KanbanBoard.PageTools
     public partial class CreateBoardTools
     {
         // Method verifies if Input String contains only allowed characters
-        public static bool isValidInput(string inputText)
+        public static bool IsValidInput(string inputText)
         {
             int i = 0;
             var regex = new Regex("[A-Za-z0-9]");
@@ -36,7 +36,7 @@ namespace KanbanBoard.PageTools
         }
 
         // Method verifies if Column Name String contains only allowed characters
-        public static bool isValidColumnName(string inputText)
+        public static bool IsValidColumnName(string inputText)
         {
             int i = 0;
             var regex = new Regex("[A-Za-z0-9 ]");
@@ -59,7 +59,7 @@ namespace KanbanBoard.PageTools
         }
 
         // Method verifies if table exists in DB
-        public static bool tableExists(string boardName)
+        public static bool TableExists(string boardName)
         {
             if (BoardsDO.GetBoardsCount(boardName) == 0)
             {
