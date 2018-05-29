@@ -11,7 +11,7 @@ Project task:
 
 Technology:
 - Windows application created using Windows Presentation Foundation
-- Entity Framework Help
+- Entity Framework
 
 Use of application: 
 In "Create New Kanban Board" user can create new board with his own name, define column names. 3 columns have default values set, user can change their names.
