@@ -29,7 +29,8 @@ namespace KanbanBoard
         {
             InitializeComponent();
             hideWarningLabels();
-
+            
+            // verify if another board is loaded in the background
             if (board != null && boardID.HasValue)
             {
                 this.board = board;
@@ -49,6 +50,7 @@ namespace KanbanBoard
 
         private void loadBoardButton_Click(object sender, RoutedEventArgs e)
         {
+
             hideWarningLabels();
             if (verifyBoardNameInput() == true)
             {
@@ -92,6 +94,7 @@ namespace KanbanBoard
                     kanbanBoardWindow.Show();
                 }
             }
+
         }
 
         // Method for verifiying board name input - returns true/false value

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Александра\Documents\C#\KANBAN_BOARD\KanbanBoard\KanbanBoard\obj\Debug\
+C:\development\visualStudio\kanbanBoard\KanbanBoard\obj\Debug\
 KanbanBoard
 none
 false
 DEBUG;TRACE
-C:\Users\Александра\Documents\C#\KANBAN_BOARD\KanbanBoard\KanbanBoard\App.xaml
+C:\development\visualStudio\kanbanBoard\KanbanBoard\App.xaml
 6-889468479
 21198830446
 201269025178
-18-1324092806
+18-504940933
 AppInformationWindow.xaml;KanbanBoardWindow.xaml;CreateBoardWindow.xaml;LoadBoardWindow.xaml;MainWindow.xaml;TaskWindow.xaml;
 
 False
