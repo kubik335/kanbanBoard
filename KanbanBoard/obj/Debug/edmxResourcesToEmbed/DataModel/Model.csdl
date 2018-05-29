@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QKOLA01_VSE_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="kanban_board">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BOARD_NAME" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="kanban_columns" Relationship="Self.FK__kanban_co__ID_BO__73BA3083" FromRole="kanban_board" ToRole="kanban_columns" />
+  </EntityType>
+  <EntityType Name="kanban_columns">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="COLUMN_POS" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_BOARD" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="kanban_board" Relationship="Self.FK__kanban_co__ID_BO__73BA3083" FromRole="kanban_columns" ToRole="kanban_board" />
+    <NavigationProperty Name="kanban_task" Relationship="Self.FK__kanban_ta__ID_CO__74AE54BC" FromRole="kanban_columns" ToRole="kanban_task" />
+  </EntityType>
+  <EntityType Name="kanban_task">
+    <Key>
+      <PropertyRef Name="ID_TASK" />
+    </Key>
+    <Property Name="ID_TASK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TASK_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TASK_DESCRIPTION" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_COLUMN" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="kanban_columns" Relationship="Self.FK__kanban_ta__ID_CO__74AE54BC" FromRole="kanban_task" ToRole="kanban_columns" />
+  </EntityType>
+  <Association Name="FK__kanban_co__ID_BO__73BA3083">
+    <End Role="kanban_board" Type="Self.kanban_board" Multiplicity="1" />
+    <End Role="kanban_columns" Type="Self.kanban_columns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kanban_board">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="kanban_columns">
+        <PropertyRef Name="ID_BOARD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__kanban_ta__ID_CO__74AE54BC">
+    <End Role="kanban_columns" Type="Self.kanban_columns" Multiplicity="1" />
+    <End Role="kanban_task" Type="Self.kanban_task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kanban_columns">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="kanban_task">
+        <PropertyRef Name="ID_COLUMN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QKOLA01_VSE_DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="kanban_board" EntityType="Self.kanban_board" />
+    <EntitySet Name="kanban_columns" EntityType="Self.kanban_columns" />
+    <EntitySet Name="kanban_task" EntityType="Self.kanban_task" />
+    <AssociationSet Name="FK__kanban_co__ID_BO__73BA3083" Association="Self.FK__kanban_co__ID_BO__73BA3083">
+      <End Role="kanban_board" EntitySet="kanban_board" />
+      <End Role="kanban_columns" EntitySet="kanban_columns" />
+    </AssociationSet>
+    <AssociationSet Name="FK__kanban_ta__ID_CO__74AE54BC" Association="Self.FK__kanban_ta__ID_CO__74AE54BC">
+      <End Role="kanban_columns" EntitySet="kanban_columns" />
+      <End Role="kanban_task" EntitySet="kanban_task" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,79 @@
+﻿<Window x:Class="KanbanBoard.TaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KanbanBoard"
+        mc:Ignorable="d"
+        Title="Task Information Window" Height="450" Width="550">
+    
+    <Grid>
+        <StackPanel Name="taskPanel">
+            <Label Content="Task Information"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Task Name:"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                
+                <TextBox Name="taskNameInput"
+                         Grid.Row="0"
+                         Grid.Column="1"/>
+
+                <Label Content="Task Description: "
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                
+                <TextBox Name="taskDescriptionInput"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Height="80"
+                         TextWrapping="Wrap" 
+                         AcceptsReturn="True" 
+                         VerticalScrollBarVisibility="Auto"
+                         VerticalContentAlignment="Top"/>
+                
+                <Label Content="Column: "
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+
+                <ComboBox Name="comboBox"
+                         Grid.Row="2"
+                         Grid.Column="1"/>
+            </Grid>
+            
+            <Button Name="saveTaskInformationButton"
+                        Content="Save"
+                        Margin="10"
+                        Click="saveTaskInformationButton_Click"/>
+
+            <Grid Name ="warningTasksGrid" 
+                      HorizontalAlignment="Center" 
+                          Height="50">
+                <TextBlock Name="nullTaskNameWarningTextBlock" 
+                           Text="Task name cannot be null" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                <TextBlock Name="longTaskNameWarningTextBlock" 
+                           Text="Task Name cannot be longer than 30 characters! Enter another task name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                <TextBlock Name="longTaskDescWarningTextBlock" 
+                           Text="Task Description cannot be longer than 150 characters! Enter another task description!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QKOLA01_VSE_DBModelStoreContainer" CdmEntityContainer="QKOLA01_VSE_DBEntities">
+    <EntitySetMapping Name="kanban_board">
+      <EntityTypeMapping TypeName="QKOLA01_VSE_DBModel.kanban_board">
+        <MappingFragment StoreEntitySet="kanban_board">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BOARD_NAME" ColumnName="BOARD_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kanban_columns">
+      <EntityTypeMapping TypeName="QKOLA01_VSE_DBModel.kanban_columns">
+        <MappingFragment StoreEntitySet="kanban_columns">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="COLUMN_POS" ColumnName="COLUMN_POS" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID_BOARD" ColumnName="ID_BOARD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kanban_task">
+      <EntityTypeMapping TypeName="QKOLA01_VSE_DBModel.kanban_task">
+        <MappingFragment StoreEntitySet="kanban_task">
+          <ScalarProperty Name="ID_TASK" ColumnName="ID_TASK" />
+          <ScalarProperty Name="TASK_NAME" ColumnName="TASK_NAME" />
+          <ScalarProperty Name="TASK_DESCRIPTION" ColumnName="TASK_DESCRIPTION" />
+          <ScalarProperty Name="ID_COLUMN" ColumnName="ID_COLUMN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

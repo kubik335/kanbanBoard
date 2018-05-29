@@ -1,0 +1,52 @@
+﻿<Window x:Class="KanbanBoard.LoadBoardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KanbanBoard"
+        mc:Ignorable="d"
+        Title="Load Board Window" Height="450" Width="550">
+
+    <StackPanel>
+
+        <Border BorderBrush="LightGray" BorderThickness="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                            Name="backToMainPageButton"
+                            Content="Menu"
+                            Click="backToMainPageButton_Click" 
+                            Style="{StaticResource TopBarButtonStyle}"
+                            Grid.Column="0"/>
+            </Grid>
+        </Border>
+        <Grid>
+            <StackPanel Name="loadBoardPanel">
+                <Label Content="Enter Board Name:"/>
+                <TextBox Name="kanbanBoardTextInput"/>
+
+                <Button
+            Name="loadBoardButton"
+            Content="Load"
+            Click="loadBoardButton_Click"/>
+
+                <Grid Name ="warningGrid" 
+              HorizontalAlignment="Center" 
+              MinHeight="100" 
+              Margin="20">
+
+                    <TextBlock Name="nullBoardWarningTextBlock" 
+                           Text="Kanban Board Name cannot be null! Enter board Name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                    <TextBlock Name="boardNotExistsWarningTextBlock" 
+                           Text="Kanban Board does not exists! Enter another board name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

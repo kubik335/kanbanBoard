@@ -1,0 +1,21 @@
+﻿<Window x:Class="KanbanBoard.AppInformationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KanbanBoard"
+        mc:Ignorable="d"
+        Title="Application Information" Height="450" Width="550">
+
+    <StackPanel>
+        <Label Content="About Kanban Board" />
+        <ScrollViewer MaxHeight="400"  
+              HorizontalScrollBarVisibility="Disabled"
+              VerticalScrollBarVisibility="Auto">
+            <TextBlock Name="appInfoTextBlock" 
+                       TextWrapping="Wrap"
+                       Padding="10"
+                       Margin="15"/>
+        </ScrollViewer>
+    </StackPanel>
+</Window>

@@ -1,0 +1,118 @@
+﻿<Window x:Class="KanbanBoard.CreateBoardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KanbanBoard"
+        mc:Ignorable="d"
+        Title="Create New Kanban Board Window" Height="450" Width="550">
+    
+    <StackPanel Name="mainPanel">
+
+        <Border BorderBrush="LightGray" BorderThickness="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button 
+                            Name="backToMainPageButton"
+                            Content="Menu"
+                            Click="backToMainPageButton_Click" 
+                            Style="{StaticResource TopBarButtonStyle}"
+                            Grid.Column="0"/>
+            </Grid>
+        </Border>
+        <Grid>
+            <StackPanel Name="boardNamePanel">
+                <Label Content="Enter Board Name:"/>
+                <TextBox Name="kanbanBoardTextInput"/>
+
+                <Button
+            Name="createBoardButton"
+            Content="Create"
+            Click="createBoardButton_Click"/>
+
+                <Grid Name ="warningGrid" 
+              HorizontalAlignment="Center" 
+              MinHeight="100" 
+              Margin="20">
+
+                    <TextBlock Name="nullWarningTextBlock" 
+                           Text="Kanban Board Name cannot be null! Enter board Name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                    <TextBlock Name="longNameWarningTextBlock" 
+                           Text="Kanban Board Name cannot be longer than 15 characters! Enter another board name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                    <TextBlock Name="containsDigitsWarningTextBlock" 
+                           Text="Kanban Board Name can contain only characters a-z, A-Z and 0-9! Enter another board name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                    <TextBlock Name="boardExistsWarningTextBlock" 
+                           Text="Kanban Board already exists! Enter another board name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Name="columnsPanel"
+                    Visibility="Hidden">
+                <Label Content="Define your board's columns:"/>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="First column:"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                    <TextBox Name="firstColumnNameInput"
+                         Grid.Row="0"
+                         Grid.Column="1"/>
+
+                    <Label Content="Second column:"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                    <TextBox Name="secondColumnNameInput"
+                         Grid.Row="1"
+                         Grid.Column="1"/>
+
+                    <Label Content="Third column:"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                    <TextBox Name="thirdColumnNameInput"
+                         Grid.Row="2"
+                         Grid.Column="1"/>
+
+                </Grid>
+                <Button Name="createColumnsButton"
+                        Content="Create"
+                        Click="createColumnsButton_Click"/>
+
+                <Grid Name ="warningColumnsGrid" 
+                      HorizontalAlignment="Center" 
+                          Height="50">
+                    <TextBlock Name="nullColumnsWarningTextBlock" 
+                           Text="Column Name cannot be null! Enter column name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                    <TextBlock Name="longColumnNameWarningTextBlock" 
+                           Text="Column Name cannot be longer than 15 characters! Enter another column name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                    <TextBlock Name="charToUseColumnsWarningTextBlock" 
+                           Text="Column Name can contain only characters a-z, A-Z and 0-9! Enter another column name!" 
+                           Style="{StaticResource WarningTextBlockStyle}"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

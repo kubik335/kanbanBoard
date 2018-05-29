@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84b18998a6034874a396e6d844303c96" Name="Diagram1">
+        <EntityTypeShape EntityType="QKOLA01_VSE_DBModel.kanban_board" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QKOLA01_VSE_DBModel.kanban_columns" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QKOLA01_VSE_DBModel.kanban_task" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="QKOLA01_VSE_DBModel.FK__kanban_co__ID_BO__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="QKOLA01_VSE_DBModel.FK__kanban_ta__ID_CO__74AE54BC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
